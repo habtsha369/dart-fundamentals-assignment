@@ -1,1 +1,21 @@
+Q1. What is the difference between a List<int> and a List<dynamic> in Dart? Why is it usually better to use a typed list like List<int>?
 
+Answer. The difference is that List<int>  is used to store only integers while List<dynamic> can store any data types such as integers , boolean  , strings or objects. List<int> is better than that of dynamic list because it makes the code easier to understand and maintain since other programmers can clearly see what type of data the list is supported to contain. The other reason is that it provides type safety , meaning the compiler can detect errors if a wrong data type is added to the list.
+
+Q2. In your findMax() function, why is it important to initialize your 'running maximum' variable to the first element of the list rather than to 0 or to a very small number? What could go wrong with the other approaches?
+
+Answer. Initializing the first element of the list ensures that the comparison starts with an actual value from the list. If it were initialized to 0, the function could produce incorrect results when the list contains only negative numbers because 0 would incorrectly appear as the maximum value. Using a very small number may also causes errors if the list contains numbers smaller than that value. Therefore, starting with the first element guarantees accurate comparisons.
+
+Q3. Your calculateAverage() function calls calculateSum() internally. What software design principle does this demonstrate, and why is reusing existing functions preferable to duplicating code?
+
+Answer. This demonstrates the software design principle of code reuse and modular programming. Reusing existing functions is preferable because it reduces code duplication, makes the program easier to maintain, and improves readability. If a change is needed in the calculation logic, it only needs to be updated in one place instead of multiple duplicated sections of code.
+
+Q4. Describe in plain English what the for-in loop syntax does in Dart. How is it different from a traditional for loop with an index? When would you prefer one over the other?
+
+Answer.  The for-in loop in Dart is used to iterate through each element in a collection such as a list. It automatically retrieves each item one by one without needing an index variable. A traditional for loop uses an index to access elements by their position in the list. The for-in loop is usually preferred when you only need to access the values of the elements, while a traditional for loop is useful when you need the index position or need to modify elements based on their position.
+
+
+
+Q5. If someone calls your findMax() function with an empty list, what happens? How could you modify the function to handle that case safely?
+
+If the findMax() function is called with an empty list, the program will produce an error because the function attempts to access the first element of the list, which does not exist. To handle this safely, the function can first check if the list is empty before performing any operations. If the list is empty, the function can return a special value such as null or display an error message.
