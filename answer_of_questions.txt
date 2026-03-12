@@ -19,3 +19,28 @@ Answer.  The for-in loop in Dart is used to iterate through each element in a co
 Q5. If someone calls your findMax() function with an empty list, what happens? How could you modify the function to handle that case safely?
 
 If the findMax() function is called with an empty list, the program will produce an error because the function attempts to access the first element of the list, which does not exist. To handle this safely, the function can first check if the list is empty before performing any operations. If the list is empty, the function can return a special value such as null or display an error message.
+
+
+Q6. What is the difference between a synchronous function and an asynchronous function in Dart? In your Calculator class, why is divide() synchronous while computeAsync() is asynchronous?
+
+Answer. A synchronous function runs line by line and must finish before the next instruction starts. An asynchronous function allows other operations to continue while waiting for a task. In this Calculator class, divide() is synchronous because it performs a simple mathematical calculation that finishes immediately. computeAsync() is asynchronous because it simulates a delayed operation using Future.delayed(), representing a real-world situation like fetching data from a server.
+
+Q7. Explain the purpose of the await keyword in Dart. What happens if you forget to use await when calling an async function that returns a Future? What does your program print instead of the result? 
+
+Answer. The await keyword pauses execution until a Future finishes and returns its result. It allows asynchronous code to behave like synchronous code. If await is forgotten when calling an async function, the program will print a Future object instead of the actual result, such as: Instance of 'Future<double>'
+
+Q8. What is the purpose of the try-catch block in your displayResult() method? What 
+would happen if you removed it and then called displayResult(10, 0, 'divide')? 
+
+Answer. The try-catch block handles runtime errors safely. In this program, divide() throws an ArgumentError if division by zero occurs. If the try-catch block is removed and displayResult(10,0,'divide') is called, the program would crash and stop executing when the exception occurs. 
+
+Q9. Why is it good design to have divide() throw an ArgumentError rather than simply 
+returning 0 or printing an error inside the divide() method itself? What principle of 
+function design does this reflect? 
+
+Answer. Throwing an ArgumentError allows the function to signal that invalid input was provided. This is better than returning 0 or printing an error because the calling function can decide how to handle the problem. This reflects the principle of separation of concerns and proper error handling in function design.
+
+Q10. What does the async keyword on main() allow you to do? Could this assignment 
+have been written without making main() async? Explain your answer.
+
+Answer. The async keyword on main() allows the program to use await inside the main function. This lets the program wait for asynchronous operations like displayResult() to finish before continuing. Without async, the program could still run using Future.then(), but the code would be harder to read. Using async and await makes the program cleaner and easier to understand.
